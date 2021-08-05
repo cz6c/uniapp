@@ -1,0 +1,81 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style":{
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style":{
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/car/car",
+			"style":{
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style":{
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/detail/detail1",
+			"style":{
+				"navigationBarTitleText": "详情"
+			}
+		}
+		
+	],
+	"globalStyle": {//全局配置
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#000000",//导航色
+		"backgroundColor": "#9ACD32"//背景底色
+	},
+	"tabBar":{
+		"backgroundColor":"#000000",
+		"color":"#333333",
+		"selectedColor":"#d81e06",
+		"list":[
+			{
+				"text":"首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/fonts/store.png",
+				"selectedIconPath":"./static/fonts/-store.png"
+			},
+			{
+				"text":"分类",
+				"pagePath":"pages/category/category",
+				"iconPath":"static/fonts/all.png",
+				"selectedIconPath":"./static/fonts/-all.png"
+			},
+			{
+				"text":"购物车",
+				"pagePath":"pages/car/car",
+				"iconPath":"static/fonts/add-cart.png",
+				"selectedIconPath":"./static/fonts/-add-cart.png"
+			},
+			{
+				"text":"我的",
+				"pagePath":"pages/profile/profile",
+				"iconPath":"static/fonts/usercenter.png",
+				"selectedIconPath":"./static/fonts/-usercenter.png"
+			}
+		]
+	},
+	"condition":{
+		"current":0,
+		"list":[
+			{
+				"name":"详情页",
+				"path":"pages/detail/detail1",
+				"query":"id=80"
+			}
+		]
+	}
+}

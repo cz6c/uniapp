@@ -1,0 +1,1 @@
+<view class="detail"><view class="a">{{message+''}}</view></view>
