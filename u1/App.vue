@@ -14,4 +14,8 @@
 
 <style>
 	/*每个页面公共css */
+	uni-forms {
+		height: 600rpx;
+		width: 750rpx;
+	}
 </style>

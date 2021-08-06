@@ -29,6 +29,12 @@
 			"style":{
 				"navigationBarTitleText": "详情"
 			}
+		},
+		{
+			"path": "pages/profile/login",
+			"style":{
+				"navigationBarTitleText": "登录"
+			}
 		}
 		
 	],
@@ -65,16 +71,6 @@
 				"pagePath":"pages/profile/profile",
 				"iconPath":"static/fonts/usercenter.png",
 				"selectedIconPath":"./static/fonts/-usercenter.png"
-			}
-		]
-	},
-	"condition":{
-		"current":0,
-		"list":[
-			{
-				"name":"详情页",
-				"path":"pages/detail/detail1",
-				"query":"id=80"
 			}
 		]
 	}

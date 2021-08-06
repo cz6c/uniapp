@@ -4,7 +4,8 @@
     "pages/category/category",
     "pages/car/car",
     "pages/profile/profile",
-    "pages/detail/detail1"
+    "pages/detail/detail1",
+    "pages/profile/login"
   ],
   "subPackages": [],
   "window": {
@@ -43,6 +44,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

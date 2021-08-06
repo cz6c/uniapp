@@ -1,1 +1,1 @@
-<view class="detail"><view class="a">{{message+''}}</view></view>
+<view class="detail"><image src="{{detail.cover_url}}" mode></image><view class="goods"><text>{{detail.title}}</text><text>{{detail.description}}</text><text>{{detail.price}}</text></view><rich-text nodes="{{detail.details}}"></rich-text><uni-goods-nav vue-id="7994ca6b-1" fill="{{true}}" options="{{options}}" buttonGroup="{{buttonGroup}}" data-event-opts="{{[['^click',[['onClick']]],['^buttonClick',[['buttonClick']]]]}}" bind:click="__e" bind:buttonClick="__e" bind:__l="__l"></uni-goods-nav></view>
