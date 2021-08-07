@@ -1,0 +1,3 @@
+<view>bind
+	bind
+	bind<button data-event-opts="{{[['tap',[['bind',['$event']]]]]}}" bindtap="__e">绑定微信</button></view>

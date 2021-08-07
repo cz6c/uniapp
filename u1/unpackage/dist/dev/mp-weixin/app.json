@@ -5,7 +5,9 @@
     "pages/car/car",
     "pages/profile/profile",
     "pages/detail/detail1",
-    "pages/profile/login"
+    "pages/profile/login",
+    "pages/profile/register",
+    "pages/profile/bind"
   ],
   "subPackages": [],
   "window": {

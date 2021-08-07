@@ -35,6 +35,18 @@
 			"style":{
 				"navigationBarTitleText": "登录"
 			}
+		},
+		{
+			"path": "pages/profile/register",
+			"style":{
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/profile/bind",
+			"style":{
+				"navigationBarTitleText": "绑定微信"
+			}
 		}
 		
 	],

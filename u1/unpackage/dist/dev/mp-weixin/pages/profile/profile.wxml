@@ -1,1 +1,1 @@
-<view class="profile"><view class="my"><image src="../../static/fonts/-add-cart.png" mode></image><view data-event-opts="{{[['tap',[['tologin',['$event']]]]]}}" class="login" bindtap="__e">未登录 去登录 ></view></view></view>
+<view class="profile"><view class="my"><image src="{{userinfo.avatar_url}}" mode></image><text class="name">{{"昵称："+userinfo.name}}</text><text class="email">{{"邮箱："+userinfo.email}}</text></view><button data-event-opts="{{[['tap',[['removeWX',['$event']]]]]}}" bindtap="__e">解绑微信</button></view>

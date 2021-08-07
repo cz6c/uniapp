@@ -31,6 +31,7 @@
 				goods: [],
 				list: [],
 				page: 1,
+				totlaPage:1,
 				flag: false
 			}
 		},
@@ -47,7 +48,9 @@
 		//页面触底
 		onReachBottom() {
 			this.page++
-			this.getList()
+			if(this.page==this.totlaPage+1){
+				this.getList()
+			}
 		},
 		methods: {
 		//商品列表数据
@@ -56,6 +59,7 @@
 					url:'/api/goods?page='+this.page,
 				}).then((res)=>{
 					this.list=this.list.concat(res.data.goods.data)
+					res.data.goods.data.length<10 ? this.totlaPage=0 : this.totlaPage=res.data.goods.current_page
 					if(this.list.length<this.page*10){
 						this.flag=true
 					}

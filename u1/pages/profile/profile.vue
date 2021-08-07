@@ -1,26 +1,47 @@
 <template>
 	<view class="profile">
 		<view class="my">
-			<image src="../../static/fonts/-add-cart.png" mode=""></image>
-			<!-- <text>用户名</text> -->
-			<view class="login" @click="tologin">
-				未登录 去登录 >
-			</view>
+			<image :src="userinfo.avatar_url" mode=""></image>
+			<text class="name">昵称：{{userinfo.name}}</text>
+			<text class="email">邮箱：{{userinfo.email}}</text>
 		</view>
+		<button @click="removeWX">解绑微信</button>
 	</view>
 </template>
 
 <script>
+	import {
+		checkLogin
+	} from '../../utils/checkLogin.js'
 	export default {
-		data(){
-			return{}
+		data() {
+			return {
+				userinfo: {}
+			}
 		},
-		methods:{
-			tologin(){
-				uni.navigateTo({
-					url:'./login'
+		onLoad() {
+			//判断用户是否登录
+			checkLogin("/pages/profile/profile")
+			this.userinfo = uni.getStorageSync('user')
+		},
+		methods: {
+			removeWX() {
+				this.$myRequest({
+					url: '/api/auth/wx/bind',
+					method: 'post',
+					data: {
+						type: 'unbind',
+						openid: uni.getStorageSync('openid')
+					}
+				}).then(res => {
+					uni.showToast({
+						title: '解绑成功',
+						icon: 'success',
+						duration: 2000
+					})
 				})
 			}
+
 		}
 	}
 </script>
@@ -30,8 +51,9 @@
 		position: relative;
 		height: 360rpx;
 		background-color: $cc-bgc-color;
-		border-radius:20rpx ;
+		border-radius: 20rpx;
 		margin: 20rpx;
+
 		image {
 			position: absolute;
 			left: 60rpx;
@@ -39,15 +61,22 @@
 			margin-top: -80rpx;
 			width: 160rpx;
 			height: 160rpx;
-			border-radius: 50% ;
+			border-radius: 50%;
 			background-color: #333;
 		}
-		.login {
+
+		text {
 			position: absolute;
-			right: 60rpx;
-			height: 100%;
-			line-height: 360rpx;
+			left: 136px;
 			color: $cc-text-color;
+		}
+
+		.name {
+			top: 66px;
+		}
+
+		.email {
+			bottom: 66px;
 		}
 	}
 </style>

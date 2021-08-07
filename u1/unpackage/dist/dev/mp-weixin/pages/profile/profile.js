@@ -130,7 +130,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+var _checkLogin = __webpack_require__(/*! ../../utils/checkLogin.js */ 82); //
 //
 //
 //
@@ -141,17 +153,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-var _default =
-{
-  data: function data() {
-    return {};
+var _default = { data: function data() {return { userinfo: {} };}, onLoad: function onLoad() {//判断用户是否登录
+    (0, _checkLogin.checkLogin)("/pages/profile/profile");this.userinfo = uni.getStorageSync('user');
   },
   methods: {
-    tologin: function tologin() {
-      uni.navigateTo({
-        url: './login' });
+    removeWX: function removeWX() {
+      this.$myRequest({
+        url: '/api/auth/wx/bind',
+        method: 'post',
+        data: {
+          type: 'unbind',
+          openid: uni.getStorageSync('openid') } }).
 
+      then(function (res) {
+        uni.showToast({
+          title: '解绑成功',
+          icon: 'success',
+          duration: 2000 });
+
+      });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -1,0 +1,30 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/profile/bind",
+          "pathName": "pages/profile/bind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/profile/login",
+          "pathName": "pages/profile/login",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

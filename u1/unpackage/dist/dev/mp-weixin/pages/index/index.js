@@ -178,6 +178,7 @@ var _default =
       goods: [],
       list: [],
       page: 1,
+      totlaPage: 1,
       flag: false };
 
   },
@@ -194,7 +195,9 @@ var _default =
   //页面触底
   onReachBottom: function onReachBottom() {
     this.page++;
-    this.getList();
+    if (this.page == this.totlaPage + 1) {
+      this.getList();
+    }
   },
   methods: {
     //商品列表数据
@@ -203,6 +206,7 @@ var _default =
         url: '/api/goods?page=' + this.page }).
       then(function (res) {
         _this2.list = _this2.list.concat(res.data.goods.data);
+        res.data.goods.data.length < 10 ? _this2.totlaPage = 0 : _this2.totlaPage = res.data.goods.current_page;
         if (_this2.list.length < _this2.page * 10) {
           _this2.flag = true;
         }

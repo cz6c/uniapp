@@ -1,5 +1,4 @@
 const BASE_URL='https://api.shop.eduwork.cn'
-const token=uni.getStorageSync("token")
 export const myRequest=(options)=>{
 	return new Promise((resolve,reject)=>{
 		uni.request({
@@ -7,10 +6,11 @@ export const myRequest=(options)=>{
 			method:options.method || 'get',
 			data:options.data || {},
 			header:{
-				Authorization: "Bearer"+token
+				Authorization: "Bearer"+uni.getStorageSync("token")
 			},
 			success(res) {
 				resolve(res)
+				console.log(res)
 			},
 			fail(err) {
 				reject(err)

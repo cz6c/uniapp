@@ -90,10 +90,36 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    var that = this;
+    //获取code
+    uni.login({
+      provider: 'weixin',
+      success: function success(loginRes) {
+        var code = loginRes.code;
+        //获取成功发送请求获取openid
+        if (loginRes) {
+          that.$myRequest({
+            url: '/api/auth/wx/code',
+            method: 'post',
+            data: {
+              appid: 'wx11779f329c74d4b2',
+              secret: '28585e8cb89dd92a3a933a8faf9dd97f',
+              js_code: code } }).
+
+          then(function (res) {
+            //如果微信未绑定，只能返回openid,先缓存起来，后面用
+            uni.setStorageSync('openid', res.data.openid);
+            //如果绑定过，会返回token和用户信息,缓存token自动登录
+            if (res.access_token != '') {
+              uni.setStorageSync('token', res.data.access_token);
+            }
+          });
+        }
+      } });
+
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -101,6 +127,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onHide: function onHide() {
     console.log('App Hide');
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 8 */
